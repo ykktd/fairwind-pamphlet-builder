@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>プライバシーについて | FairWind パンフレット作成</title>
+    <style>
+      :root { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans JP", sans-serif; color: #202a3a; background: #f5f7fb; line-height: 1.75; }
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      header { background: #fff; border-bottom: 1px solid #dde3ed; padding: 16px max(20px, calc((100vw - 760px) / 2)); }
+      header a { color: #254f9b; text-decoration: none; }
+      main { max-width: 760px; margin: 28px auto; padding: 28px; background: #fff; border: 1px solid #e0e5ee; border-radius: 12px; }
+      h1 { font-size: 25px; margin: 0 0 8px; }
+      h2 { font-size: 18px; margin: 26px 0 8px; }
+      p, li { font-size: 14px; }
+      ul { padding-left: 1.5em; }
+      .date { color: #657286; font-size: 12px; }
+      a { color: #254f9b; }
+      @media (max-width: 800px) { main { margin: 0; border: 0; border-radius: 0; padding: 24px 20px; } }
+    </style>
+  </head>
+  <body>
+    <header><a href="./">← パンフレット作成ツールに戻る</a></header>
+    <main>
+      <h1>プライバシーについて</h1>
+      <p class="date">更新日：2026年9月25日</p>
+      <p>FairWind パンフレット作成ツールで扱う資料と Google ドライブのデータについて説明します。</p>
+
+      <h2>扱う情報と利用目的</h2>
+      <p>このツールは、担当者が選んだ PDF・Google ドキュメント、企画名、資料の並び順、プロフィール目次用のテキストを使い、パンフレットの PDF を作ります。Google ドライブとの接続では、選択したファイルと、このツールで作成したファイルを読む・作成する・更新するために Google の <code>drive.file</code> 権限を使用します。</p>
+
+      <h2>保存先</h2>
+      <ul>
+        <li>PDF の結合、目次とページ番号の生成はブラウザ内で行います。このツール独自のサーバーへ資料を送信しません。</li>
+        <li>企画の構成と接続設定は、利用中のブラウザの保存領域に記録します。Drive に保存する前のローカル PDF も、そのブラウザ内に保存します。</li>
+        <li>企画共有フォルダを選ぶと、その中の「パンフ作成用」フォルダに、企画の構成、アップロードした資料、共通資料のコピー、完成 PDF を保存できます。これらへのアクセスは Google ドライブの共有設定に従います。</li>
+        <li>Google のアクセストークンは接続中のブラウザのメモリで使い、ブラウザの保存領域や GitHub リポジトリには保存しません。</li>
+      </ul>
+
+      <h2>外部サービス</h2>
+      <p>Google アカウントの認証、ファイルの選択、Drive への読み書きには Google のサービスを利用します。サイトの配信には GitHub Pages を利用します。各サービスによる情報の取扱いは、それぞれのポリシーに従います。</p>
+
+      <h2>接続の解除と削除</h2>
+      <p>Google アカウントの<a href="https://myaccount.google.com/connections" target="_blank" rel="noopener noreferrer">サードパーティとの接続画面</a>から、このツールへのアクセスを取り消せます。ブラウザに保存された企画データはブラウザのサイトデータを消すことで削除できます。Drive に保存した資料と完成 PDF は、権限のある担当者が Drive で削除できます。</p>
+
+      <h2>問い合わせ</h2>
+      <p>このツールのデータの扱いについては、<a href="mailto:kitade.yuki.fw@gmail.com">kitade.yuki.fw@gmail.com</a> へお問い合わせください。</p>
+    </main>
+  </body>
+</html>
