@@ -3,7 +3,7 @@ import * as pdfjs from 'pdfjs-dist/build/pdf.mjs';
 import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { buildPamphlet, BuildError } from './core/pdf.js';
 import { parseWikiProfiles } from './core/wiki.js';
-import { DriveClient } from './drive.js';
+import { DriveClient, preloadGoogleScripts } from './drive.js';
 import { getLocalFile, loadProject, loadSettings, putLocalFile, saveProject, saveSettings } from './storage.js';
 import './style.css';
 
@@ -21,6 +21,7 @@ const blankProject = () => ({ id: crypto.randomUUID(), title: '新しい企画',
 let project = loadProject() || blankProject();
 let settings = { ...deploymentSettings, ...loadSettings() };
 let drive = new DriveClient(settings);
+let googleReady = false;
 let selectedId = project.items[0]?.id || 'toc';
 let buildResult = null;
 let previewDocument = null;
@@ -155,7 +156,7 @@ function settingsMarkup() {
 function render() {
   app.innerHTML = `<div class="app-shell">
     <header class="topbar"><span class="brand">FairWind パンフレット作成</span><input class="project-title" aria-label="企画名" type="text" id="project-title" value="${escapeHtml(project.title)}" />
-      <div class="top-actions"><button class="button subtle" data-action="new-project">新しい企画</button><button class="button" data-action="open-google-settings">Google接続の設定</button><button class="button ${drive.connected ? '' : 'subtle'}" data-action="connect-google">${drive.connected ? 'Google接続済み' : 'Googleに接続'}</button></div></header>
+      <div class="top-actions"><button class="button subtle" data-action="new-project">新しい企画</button><button class="button" data-action="open-google-settings">Google接続の設定</button><button class="button ${drive.connected ? '' : 'subtle'}" data-action="connect-google" ${googleReady ? '' : 'disabled'}>${drive.connected ? 'Google接続済み' : googleReady ? 'Googleに接続' : 'Google接続を準備中…'}</button></div></header>
     <div id="status" class="status ${statusError ? 'error' : ''}" role="status">${escapeHtml(statusText)}</div>
     <main class="workspace">
       <section class="panel"><div class="panel-heading"><h2>資料一覧</h2><span class="pill">${project.items.length}資料</span></div>
@@ -530,3 +531,4 @@ app.addEventListener('drop', event => {
 app.addEventListener('dragend', () => { draggedId = null; });
 
 render();
+preloadGoogleScripts().then(() => { googleReady = true; render(); }).catch(error => setStatus(error.message, true));

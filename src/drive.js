@@ -26,6 +26,8 @@ async function loadScripts() {
   return scriptPromise;
 }
 
+export const preloadGoogleScripts = () => loadScripts();
+
 async function responseOrError(response) {
   if (response.ok) return response;
   let detail = '';
