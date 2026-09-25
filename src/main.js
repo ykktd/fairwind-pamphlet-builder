@@ -174,6 +174,7 @@ function render() {
       </section>
       <aside class="panel settings-panel"><div class="right-sticky">${settingsMarkup()}</div></aside>
     </main>
+    <footer class="site-footer"><span>FairWind パンフレット作成</span><a href="./privacy.html">プライバシーについて</a></footer>
     <input id="pdf-file-input" type="file" accept="application/pdf,.pdf" hidden />
     <dialog id="google-settings"><h2>Google接続の設定</h2><p class="muted">公開時に設定済みなら入力は不要です。手動で変更した値はこのブラウザに保存します。</p><form method="dialog" id="settings-form" class="dialog-grid">
       <div><label for="client-id">OAuth クライアント ID</label><input id="client-id" type="text" required value="${escapeHtml(settings.clientId || '')}" /></div>

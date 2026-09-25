@@ -75,5 +75,7 @@ dialog::backdrop { background: #17243e80; }
 .dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 22px; }
 .dialog-grid { display: grid; gap: 14px; }
 .project-folder { margin: 10px 0 0; }
+.site-footer { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 22px; background: #fff; border-top: 1px solid #dde3ed; color: #657286; font-size: 12px; }
+.site-footer a { color: #254f9b; }
 @media (max-width: 1100px) { .workspace { grid-template-columns: minmax(220px, 28%) minmax(0,1fr); } .settings-panel { grid-column: 1 / -1; border-top: 1px solid #e0e5ee; } .right-sticky { position: static; } }
 @media (max-width: 720px) { .topbar { padding: 12px; } .top-actions { width: 100%; margin-left: 0; } input.project-title { width: 100%; } .workspace { display: block; } .panel { border-right: 0; border-bottom: 1px solid #e0e5ee; } .preview-layout { grid-template-columns: 1fr; } .thumb-grid { max-height: 260px; } }
