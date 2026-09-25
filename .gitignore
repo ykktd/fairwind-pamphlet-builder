@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+.env
+.env.local
+.env.production
+.env.production.local
+1_目次_パンフテンプレ.docx
+誰でもわかるパンフの作り方.md
+パンフレット作成ツール企画書.md
+パンフレット作成ツール画面イメージ.png
